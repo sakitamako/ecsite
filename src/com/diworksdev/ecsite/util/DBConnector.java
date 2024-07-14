@@ -30,7 +30,7 @@ public class DBConnector {
 
 			//ドライバーがロードされ使えるような状態にしている、覚える。
 			//接続情報から自分のパソコンにインストールされているMySQLへ接続する準備が整う
-			con = (Connection) DriverManager.getConnection(url, user, password);
+			con = (Connection)DriverManager.getConnection(url, user, password);
 
 		//tryの中でエラーが発生した場合、catchが受け取り
 		//例外がスローされる原因となったエラーまたは動作の説明を返します

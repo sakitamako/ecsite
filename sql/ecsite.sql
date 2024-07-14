@@ -61,6 +61,3 @@ delete_date datetime);
  *作成したテーブルに情報を格納する*/
 INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES("ノ ー ト Book", 100, 50);
 INSERT INTO login_user_transaction(login_id, login_pass, user_name) VALUES("diworks", "diworks01", "test");
-/*user_buy_item_transactionは入力しないのか？入力するとしたら下記？？
- *INSERT INTO user_buy_item_transaction(
- *item_transaction_id, total_price, total_count, user_master_id, pay) VALUES(?, ?, ?, ?, ?);*/
