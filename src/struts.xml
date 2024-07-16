@@ -27,5 +27,10 @@
             <result name="success">buyItem.jsp</result>
         </action>
 
+        <action name="LoginAction" class="com.diworksdev.ecsite.action.LoginAction" method="execute">
+            <result name="success">buyItem.jsp</result>
+            <result name="error">login.jsp</result>
+        </action>
+
     </package>
 </struts>

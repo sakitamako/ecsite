@@ -3,6 +3,7 @@ package com.diworksdev.ecsite.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import com.diworksdev.ecsite.dto.LoginDTO;
 import com.diworksdev.ecsite.util.DBConnector;
 
@@ -14,7 +15,7 @@ public class LoginDAO {
 
 	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword) {
 
-		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
+		String sql = "SELECT * FROM login_user_transaction where login_id=? AND login_pass=?";
 
 		try {
 
@@ -31,19 +32,20 @@ public class LoginDAO {
 				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
 				loginDTO.setUserName(resultSet.getString("user_name"));
 
-				if (resultSet.getString("login_id") != null) {
+			}
 
-					loginDTO.setLoginFlg(true);
-
-				} catch (Exception e) {
-				e.printStackTrace();
+			if (resultSet.getString("login_id") != null) {
+				loginDTO.setLoginFlg(true);
 
 			}
 
-			return loginDTO;
 
-			}
-
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+		return loginDTO;
+
+	}
 
 }
