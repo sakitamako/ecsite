@@ -22,5 +22,10 @@
             <result name="success">home.jsp</result>
         </action>
 
+        <action name="HomeAction" class="com.diworksdev.ecsite.action.HomeAction" method="execute">
+            <result name="login">login.jsp</result>
+            <result name="success">buyItem.jsp</result>
+        </action>
+
     </package>
 </struts>

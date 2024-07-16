@@ -14,7 +14,7 @@
         <meta http-equiv="imagetoolbar" content="no" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <title>Home画面</title>
+        <title>Login画面</title>
 
         <style type="text/css">
 
@@ -63,14 +63,41 @@ table {
     clear: both;
 }
 
-#text-center {
+#text-link {
     display: inline-block;
-    text-align: center;
+    text-align: right;
 }
 
         </style>
     </head>
     <body>
-
+        <div id="header">
+            <div id="pr"></div>
+        </div>
+        <div id="main">
+            <div id="top">
+                <p>Login</p>
+            </div>
+            <div>
+                <h3>商品を購入する際にはログインをお願いいたします！</h3>
+                <s:form action="LoginAction">
+                    <s:textfield name="loginUserId" />
+                    <s:password name="loginPassword" />
+                    <s:submit value="ログイン" />
+                </s:form>
+                <br/>
+                <div id="text-link">
+                    <p>新規ユーザー登録は
+                        <a href='<s:url action="UserCreateAction" />'>こちら</a>
+                    </p>
+                    <p>Homeへ戻る場合は
+                        <a href='<s:url action="GoHomeAction" />'>こちら</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="pr"></div>
+        </div>
     </body>
 </html>
