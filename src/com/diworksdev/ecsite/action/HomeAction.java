@@ -26,7 +26,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 			//DBから取得した商品情報を、sessionに格納
 			session.put("id", buyItemDTO.getId());
 			session.put("buyItem_name", buyItemDTO.getItemName());
-			session.put("buyItem_price ", buyItemDTO.getItemPrice());
+			session.put("buyItem_price", buyItemDTO.getItemPrice());
 
 			result = SUCCESS;
 		}

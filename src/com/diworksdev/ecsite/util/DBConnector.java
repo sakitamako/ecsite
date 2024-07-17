@@ -39,7 +39,7 @@ public class DBConnector {
 
 		//tryの中でエラーが発生した場合、catchが受け取り
 		//例外がスローされる原因となったエラーまたは動作の説明を返します
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 
 		}
