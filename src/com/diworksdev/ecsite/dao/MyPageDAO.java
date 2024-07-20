@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import com.diworksdev.ecsite.dto.MyPageDTO;
 import com.diworksdev.ecsite.util.DBConnector;
 
@@ -15,6 +16,7 @@ public class MyPageDAO {
 
 	//DBから購入履歴を取得するためのメソッド
 	public ArrayList<MyPageDTO> getMyPageUserInfo(String item_transaction_id, String user_master_id) throws SQLException {
+
 		ArrayList<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
 
 		//「LEFT JOIN」を用いて複数のテーブルを結合することによってユーザ情報と履歴情報を紐付けて一括して取得することができる
@@ -57,34 +59,37 @@ public class MyPageDAO {
 
 		return myPageDTO;
 
-		//DBから購入履歴を削除するためのメソッド
-		public int buyItemHistoryDelete (String item_transaction_id, String user_master_id) throws SQLException {
+	}
 
-			String sql = "DELETE FROM user_buy_item_transaction WHERE item_transaction_id= ? AND user_master_id = ?";
+	//DBから購入履歴を削除するためのメソッド
+	public int buyItemHistoryDelete(String item_transaction_id, String user_master_id) throws SQLException {
 
-			PreparedStatement preparedStatement;
+		String sql = "DELETE FROM user_buy_item_transaction WHERE item_transaction_id= ? AND user_master_id = ?";
 
-			int result =0;
+		PreparedStatement preparedStatement;
 
-			try {
+		int result = 0;
 
-				preparedStatement = connection.prepareStatement(sql);
-				preparedStatement.setString(1, item_transaction_id);
-				preparedStatement.setString(2, user_master_id);
-				result = preparedStatement.executeUpdate();
+		try {
 
-			} catch (SQLException e) {
-				e.printStackTrace();
+			preparedStatement = connection.prepareStatement(sql);
 
-			} finally {
-				connection.close();
+			preparedStatement.setString(1, item_transaction_id);
+			preparedStatement.setString(2, user_master_id);
+			result = preparedStatement.executeUpdate();
 
-			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 
-			//Actionクラスに削除した件数を返す
-			return result;
+		} finally {
+			connection.close();
 
 		}
+
+		//Actionクラスに削除した件数を返す
+		return result;
+
+
 	}
 
 }
