@@ -14,6 +14,7 @@
         <meta http-equiv="imagetoolbar" content="no" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <title>BuyItemConfirm画面</title>
 
         <style type="text/css">
@@ -65,12 +66,10 @@ table {
 
         </style>
         <script type="text/javascript">
-
         function submitAction(url) {
-        	$ ('form').attr('action', url);
-        	$ ('form').submit();
+            $('form').attr('action', url);
+            $('form').submit();
         }
-
         </script>
     </head>
     <body>

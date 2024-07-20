@@ -42,13 +42,12 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 			//「delete」メソッドを呼び出して、履歴の削除処理を行います。
 			delete();
 
-			String result = SUCCESS;
-
-			return result;
-
 		}
 
-		return deleteFlg;
+		String result = SUCCESS;
+
+		return result;
+
 
 	}
 

@@ -15,6 +15,7 @@ public class BuyItemDAO {
 
 	public BuyItemDTO getBuyItemInfo() {
 
+		//商品情報をすべて取得するSQL文を書く
 		String sql = "SELECT id, item_name, item_price FROM item_info_transaction";
 
 		try {
@@ -24,6 +25,7 @@ public class BuyItemDAO {
 
 			if (resultSet.next()) {
 
+				//DBから取得した情報をDTOクラスに格納
 				buyItemDTO.setId(resultSet.getInt("id"));
 				buyItemDTO.setItemName(resultSet.getString("item_name"));
 				buyItemDTO.setItemPrice(resultSet.getString("item_price"));
@@ -35,6 +37,7 @@ public class BuyItemDAO {
 
 		}
 
+		//ActionクラスにDTOクラスを返す
 		return buyItemDTO;
 
 	}

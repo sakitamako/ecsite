@@ -23,10 +23,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	public String execute() throws SQLException {
 
 		//DAOを経由して入力された内容をDBに登録します。
-		userCreateCompleteDAO.cerateUser(
-				session.get("loginUserId").toString(),
-				session.get("loginPassword").toString(),
-				session.get("userName").toString());
+		userCreateCompleteDAO.cerateUser(session.get("loginUserId").toString(), session.get("loginPassword").toString(), session.get("userName").toString());
 
 		String result = SUCCESS;
 
@@ -41,6 +38,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 	public void setLoginUserId(String loginUserId) {
 		this.loginUserId = loginUserId;
+
 	}
 
 	public String getLoginPassword() {

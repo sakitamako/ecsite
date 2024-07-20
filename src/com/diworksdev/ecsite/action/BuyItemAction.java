@@ -16,6 +16,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	public String execute() {
 
 		String result = SUCCESS;
+
 		session.put("count", count);
 
 		int intCount = Integer.parseInt(session.get("count").toString());
@@ -57,4 +58,5 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		this.session = session;
 
 	}
+
 }

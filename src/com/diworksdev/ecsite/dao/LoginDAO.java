@@ -32,16 +32,18 @@ public class LoginDAO {
 				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
 				loginDTO.setUserName(resultSet.getString("user_name"));
 
-			}
+				if (resultSet.getString("login_id") != null) {
 
-			if (resultSet.getString("login_id") != null) {
-				loginDTO.setLoginFlg(true);
+					loginDTO.setLoginFlg(true);
+
+				}
 
 			}
 
 
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		}
 
 		return loginDTO;

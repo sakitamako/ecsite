@@ -11,6 +11,7 @@ public class GoHomeAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> session;
 
 	public String execute() {
+
 		return SUCCESS;
 
 	}
