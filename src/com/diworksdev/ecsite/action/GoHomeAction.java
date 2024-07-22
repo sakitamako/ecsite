@@ -41,6 +41,9 @@ public class GoHomeAction extends ActionSupport implements SessionAware {
 	//フィールド変数に対応したgetterとsetterを定義
 	//Actionクラスから呼び出され、sessionフィールドの値をActionに渡す
 	public Map<String, Object> getSession() {
+
+		//「this を使う場所 は フィールド変数名の 頭
+		//フィールド変数の処理結果を返す
 		return this.session;
 
 	}
@@ -49,6 +52,9 @@ public class GoHomeAction extends ActionSupport implements SessionAware {
 	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のsessionフィールドに格納
 	@Override
 	public void setSession(Map<String, Object> session) {
+
+		//「this を使う場所 は フィールド変数名の 頭
+		//クラス内の変数=フィールド変数
 		this.session = session;
 
 	}
