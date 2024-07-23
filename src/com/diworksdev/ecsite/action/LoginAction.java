@@ -58,13 +58,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 
 		//Map を使った場合には、put()で要素を記憶できる
-		//sessionに記憶する
+		//sessionに記憶する ⇦ "loginUser"という文字列に入っているIdとかpassのこと、loginDTOのこと
 		session.put("loginUser", loginDTO);
 
 		//入力値からユーザー情報の検索を行います。
 		//ログイン認証が成功した場合、次の画面で
 		//「商品情報」が必要なため商品情報を取得します。
-		//もしLoginDTOの中に入っているsessionからloginUserとgetLoginFlg()を取得した場合success
+		//もしLoginDTOの中に入っているsessionから文字列のloginUserとgetLoginFlg(空文字)を取得した場合success
 		if (((LoginDTO)session.get("loginUser")).getLoginFlg()) {
 
 			result = SUCCESS;
