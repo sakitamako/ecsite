@@ -21,7 +21,7 @@ public class DateUtil {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
 		//処理結果を渡す
-		return simpleDateFormat .format(date);
+		return simpleDateFormat.format(date);
 
 	}
 
