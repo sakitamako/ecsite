@@ -32,11 +32,12 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	//フィールド変数
 	//JSPから受け取る値
 	//※必ずJSPでの定義と同じ名前にする
+	//メンバ変数（属性）
 	private int count;
 	private String pay;
 
 
-	//全てのクラス 変数 変数名(struts)
+	//全てのクラス 変数 変数名(struts)//メソッド（操作）
 	public String execute() {
 
 		//初期値、SUCCESS
