@@ -85,6 +85,11 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 	}
 
+	//get
+	//外のAメソッドから getter を呼び出し、その戻り値としてBクラスの name フィールドの値を戻している。
+	//set
+	//Bクラス内に setter メソッドを定義し、外部から呼び出すことによって、引数にした値を代入,値を書き換えしている。
+
 	//フィールド変数に対応したgetterとsetterを定義
 	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のcountフィールドに格納
 	public void setCount(int count) {
