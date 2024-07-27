@@ -27,7 +27,7 @@ public class BuyItemDAO {
 
 	//①クラス、メソッドの定義
 	//DTO型を最後に呼び出し元に渡すので、DTO型を戻り値にしたメソッドを作る
-	//Actionクラスの値を引数として受け取る
+	//Actionクラスの値を引数として受け取る、初期値の時点では空
 	public BuyItemDTO getBuyItemInfo() {
 
 		//商品情報をすべて取得するSQL文を書く

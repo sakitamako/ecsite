@@ -36,7 +36,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	public String execute() {
 
 		//変数・文字列 result=login
-		//初期値
+		//home.jspの商品購入ボタンをクリックしたらlogin.jsp画面に遷移する
 		String result = "login";
 
 		//ログイン済み判定を行います。
@@ -67,7 +67,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、sessionフィールドの値をBuyItem.jspに渡している
+	//DTOから戻り値として受け取った、sessionフィールドの値をBuyItem.jspに渡している
 	public Map<String, Object> getSession() {
 
 		//「this を使う場所 は フィールド変数名の 頭
@@ -77,7 +77,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のsessionフィールドに格納
+	//全てのクラスのsetの値を自身のsessionフィールドに代入して格納
 	@Override
 	public void setSession(Map<String, Object> session) {
 

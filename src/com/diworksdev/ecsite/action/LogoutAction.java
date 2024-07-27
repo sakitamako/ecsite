@@ -36,13 +36,14 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 		//マップからマッピングをすべて削除します(オプションの操作)。この呼出しが戻ると、マップは空になります。
 		session.clear();
 
-		//logoutボタンを押したらsuccessを返します。
+		//logoutボタンを押したらsessionに記憶している情報を削除してsuccessを返します。
 		return SUCCESS;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のsessionフィールドに格納
+	//上記の引数として受け取ったテーブルの値を自身のsessionフィールドに格納
+	//上記で削除した情報を格納する
 	@Override
 	public void setSession(Map<String, Object> session) {
 
