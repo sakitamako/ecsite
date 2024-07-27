@@ -37,6 +37,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	public Map<String, Object> session;
 
 	//このクラスのみ 変数 変数名
+	//初期値、
 	private String errorMessage;
 
 	//メソッド名は「execute」
@@ -66,7 +67,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		}
 
-		//if文の処理結果resultを呼び出し元であるActionクラスに渡す
+		//if文の処理結果resultを呼び出し元である上記48行目に渡す
 		return result;
 
 	}
@@ -75,14 +76,14 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	//・setterは「値を更新する事だけ」
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、loginUserIdフィールドの値をActionに渡す
+	//userCreate.jspの値として受け取った、loginUserIdフィールドの値をuserCreateConfirm.jspに渡している
 	public String getLoginUserId() {
 		return loginUserId;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のloginUserIdフィールドに格納
+	//全てのクラスのsetの値を自身のsessionフィールドに代入して格納
 	public void setLoginUserId(String loginUserId) {
 
 		//thisという変数を経由して、自分自身のインスタンスのメソッドを呼び出す
@@ -91,35 +92,35 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、loginPasswordフィールドの値をActionに渡す
+	//userCreate.jspの値として受け取ったloginPasswordフィールドの値をuserCreateConfirm.jspに渡している
 	public String getLoginPassword() {
 		return loginPassword;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のloginPasswordフィールドに格納
+	//全てのクラスのsetの値を自身のloginPasswordフィールドに代入して格納
 	public void setLoginPassword(String loginPassword) {
 		this.loginPassword = loginPassword;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、userNameフィールドの値をActionに渡す
+	//userCreate.jspの値として受け取ったuserNameフィールドの値をuserCreateConfirm.jspに渡している
 	public String getUserName() {
 		return userName;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のuserNameフィールドに格納
+	//全てのクラスのsetの値を自身のuserNameフィールドに代入して格納
 	public void setUserName(String userName) {
 		this.userName = userName;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のessionフィールドに格納
+	//全てのクラスのsetの値を自身のsessionフィールドに代入して格納
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -127,14 +128,14 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、errorMessageフィールドの値をActionに渡す
+	//userCreate.jspの値として受け取ったerrorMessageフィールドの値をuserCreateConfirm.jspに渡している
 	public String getErrorMessage() {
 		return errorMessage;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のerrorMessageフィールドに格納
+	//全てのクラスのsetの値を自身のerrorMessageフィールドに代入して格納
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 

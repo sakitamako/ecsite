@@ -45,62 +45,63 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	public String execute() throws SQLException {
 
 		//DAOを経由して入力された内容をDBに登録します。
-		//DAOのcreateUserに記憶しているid,pass,nameを取得してテキストで表す
+		//DAOのcreateUserに記憶しているid,pass,nameを取得してテキストで表す文字列を返す
 		userCreateCompleteDAO.cerateUser(session.get("loginUserId").toString(), session.get("loginPassword").toString(), session.get("userName").toString());
 
 		//変数・文字列 result=SUCCESS
+		//userCreateComplete.jspに遷移する
 		String result = SUCCESS;
-		
+
 		//戻り値
-		//resultに入った値を呼び出し元であるActionクラスに渡す
+		//resultに入った値の処理結果をstrutsが取得してuserCreateComplete.jspに遷移する
 		return result;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、loginUserIdフィールドの値をActionに渡す
+	//userCreateconfirm.jspの値として受け取った、loginUserIdフィールドの値をuserCreateComplete.jspに渡している
 	public String getLoginUserId() {
 		return loginUserId;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のloginUserIdフィールドに格納
+	//全てのクラスのsetの値を自身のloginUserIdフィールドに代入して格納
 	public void setLoginUserId(String loginUserId) {
 		this.loginUserId = loginUserId;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、loginPasswordフィールドの値をActionに渡す
+	//userCreateconfirm.jspの値として受け取った、loginPasswordフィールドの値をuserCreateComplete.jspに渡している
 	public String getLoginPassword() {
 		return loginPassword;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のloginPasswordフィールドに格納
+	//全てのクラスのsetの値を自身のloginPasswordフィールドに代入して格納
 	public void setLoginPassword(String loginPassword) {
 		this.loginPassword = loginPassword;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、userNameフィールドの値をActionに渡す
+	//userCreateconfirm.jspの値として受け取った、userNameフィールドの値をuserCreateComplete.jspに渡している
 	public String getUserName() {
 		return userName;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のuserNameフィールドに格納
+	//全てのクラスのsetの値を自身のluserNameフィールドに代入して格納
 	public void setUserName(String userName) {
 		this.userName = userName;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のsessionフィールドに格納
+	//全てのクラスのsetの値を自身のsessionフィールドに代入して格納
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

@@ -34,24 +34,26 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	public Map<String, Object> session;
 
 	//②DAOのインスタンス化
+	//このクラスのみ 変数 変数名
 	private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 
 	//全てのクラス 変数 変数名(struts) throws=例外を意図的に起こすことが出来る処理のこと。
+	//45行目の記憶している情報をテキストで表示してbuyItemConfirm.jspの完了ボタン押したらbuyItemComplete.jspに遷移する
 	public String execute() throws SQLException {
 
 		//sessionの中に記憶しているデータを取得してテキストで表す
 		buyItemCompleteDAO.buyItemeInfo(session.get("id").toString(), session.get("total_price").toString(), session.get("count").toString(), session.get("login_user_id").toString(), session.get("pay").toString());
 
-		//resultにSUCCESS代入
+		//resultにSUCCESS代入＝buyItemComplete.jspに遷移する
 		String result = SUCCESS;
 
-		//呼び出し元であるアクションクラスにresultを返す
+		//戻るボタン押したらbuyItem.jspに遷移する
 		return result;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のsessionフィールドに格納
+	//全てのクラスから受け取ったテーブルの値を自身のsessionフィールドに格納
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
