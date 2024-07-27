@@ -33,13 +33,13 @@ public class GoHomeAction extends ActionSupport implements SessionAware {
 	//管理コマンド・メッセージをコマンド・サーバーに送信し、何らかの応答メッセージを待ちます
 	public String execute() {
 
-		//「excecute」メソッドを実行した後は"success"文字列を返す
+		//前画面へ戻る場合はこちらボタンや、ホームへ戻る場合はこちらボタンを押すと画面がhome.jspに遷移する
 		return SUCCESS;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、sessionフィールドの値をActionに渡す
+	//全てのクラスの戻り値として受け取った、sessionフィールドの値をhome.jspに渡している
 	public Map<String, Object> getSession() {
 
 		//「this を使う場所 は フィールド変数名の 頭
@@ -49,7 +49,7 @@ public class GoHomeAction extends ActionSupport implements SessionAware {
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のsessionフィールドに格納
+	//全てのクラスから受け取ったテーブルの値を自身のsessionフィールドに格納
 	@Override
 	public void setSession(Map<String, Object> session) {
 

@@ -14,7 +14,7 @@ public class BuyItemDTO {
 	//・setterは「値を更新する事だけ」
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、itemNameフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのtemNameを渡している*/
 	//get は値を取得、set は登録
 	public String getItemName() {
 		return itemName;
@@ -28,7 +28,7 @@ public class BuyItemDTO {
 
 	}
 
-	//Actionクラスから呼び出され、itemPriceフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのtemPriceを渡している*/
 	public String getItemPrice() {
 		return itemPrice;
 
@@ -41,7 +41,7 @@ public class BuyItemDTO {
 
 	}
 
-	//Actionクラスから呼び出され、idフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのIdを渡している*/
 	public int getId() {
 		return id;
 

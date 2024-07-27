@@ -40,7 +40,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	//全てのクラス 変数 変数名(struts)//メソッド（操作）
 	public String execute() {
 
-		//初期値、SUCCESS
+		//初期値、購入ボタン押したらbuyItemConfirm.jspに遷移する
 		String result = SUCCESS;
 
 		//sessionに記憶・保存する、文字列countとcountを
@@ -80,7 +80,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		}
 
 		//戻り値
-		//retに入った値を呼び出し元であるActionクラスに渡す
+		//処理結果の内容を上記44行目のresultに渡す
 		return result;
 
 	}
@@ -91,21 +91,21 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	//Bクラス内に setter メソッドを定義し、外部から呼び出すことによって、引数にした値を代入,値を書き換えしている。
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のcountフィールドに格納
+	//全てのクラスのcountから受け取ったテーブルの値を自身のcountフィールドに格納
 	public void setCount(int count) {
 		this.count = count;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のpayフィールドに格納
+	//全てのクラスのpayから受け取ったテーブルの値を自身のpayフィールドに格納
 	public void setPay(String pay) {
 		this.pay = pay;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のsessionフィールドに格納
+	//全てのクラスのsessionから受け取ったテーブルの値を自身のsessionフィールドに格納
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
