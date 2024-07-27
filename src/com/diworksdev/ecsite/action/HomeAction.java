@@ -43,6 +43,8 @@ public class HomeAction extends ActionSupport implements SessionAware {
 		//一度ログインしている場合はログイン認証画面に遷移させることなく、商品画面へ遷移させます。
 		//もしsessionに特定のキーが辞書内に存在するかどうかを確認するために使用される、存在する場合にtrueを返します
 		//containsKey=マップに特定の値が存在するかどうかを調べたい場合、 あるいはキーと値の両方について調べたい場合は exists メソッドを使用
+		/*もしsessionに記憶しているlogin_user_idに値がはいっていたら
+		 *buyItemDAOがDBに問い合わせて受け取った情報をbuyItemDTOに格納してDAOがこのクラスに戻り値の値を返す、返ってきた値が存在すればbuyItem.jspに遷移する*/
 		if (session.containsKey("login_user_id")) {
 
 			//DAOとDTOのインスタンス化（コピーして代入）
@@ -65,7 +67,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、sessionフィールドの値をActionに渡す
+	//Actionクラスから呼び出され、sessionフィールドの値をBuyItem.jspに渡している
 	public Map<String, Object> getSession() {
 
 		//「this を使う場所 は フィールド変数名の 頭

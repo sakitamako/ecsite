@@ -22,6 +22,7 @@ public class LoginDTO {
 	//フィールド変数に対応したgetterとsetterを定義
 	//Actionクラスから呼び出され、loginIdフィールドの値をActionに渡す
 	//get は値を取得、set は登録
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのloginIdを渡している*/
 	public String getLoginId() {
 		return loginId;
 
@@ -29,6 +30,7 @@ public class LoginDTO {
 
 	//フィールド変数に対応したgetterとsetterを定義
 	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のDTO loginIdフィールドに格納
+	//LoginDAOの64行目
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 
