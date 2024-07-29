@@ -117,12 +117,13 @@ public class MyPageDAO {
 		//④sql文を書く：値は ? を入れておく（どんな値でも使いまわしできるようにするため）
 		String sql = "DELETE FROM user_buy_item_transaction WHERE item_transaction_id= ? AND user_master_id = ?";
 
-		//tryの中にはエラーが発生しそうな処理を書く
 		//⑤PreparedStatement（DBまで運んでくれる箱のイメージ）に代入
 		PreparedStatement preparedStatement;
 
+		//基本データ型の値0をresultに代入
 		int result = 0;
 
+		//tryの中にはエラーが発生しそうな処理を書く
 		try {
 
 			//tryの中にはエラーが発生しそうな処理を書く

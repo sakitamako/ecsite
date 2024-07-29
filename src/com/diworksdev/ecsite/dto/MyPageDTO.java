@@ -17,7 +17,7 @@ public class MyPageDTO {
 	public String insert_date;
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、itemNameフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのitemNameを渡している*/
 	//get は値を取得、set は登録
 	public String getItemName() {
 		return itemName;
@@ -30,7 +30,7 @@ public class MyPageDTO {
 
 	}
 
-	//Actionクラスから呼び出され、totalPriceフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのtotalPriceを渡している*/
 	public String getTotalPrice() {
 		return totalPrice;
 
@@ -43,7 +43,7 @@ public class MyPageDTO {
 
 	}
 
-	//Actionクラスから呼び出され、totalCountフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのtotalCountを渡している*/
 	public String getTotalCount() {
 		return totalCount;
 
@@ -56,7 +56,7 @@ public class MyPageDTO {
 
 	}
 
-	//Actionクラスから呼び出され、paymentフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのpaymentを渡している*/
 	public String getPayment() {
 		return payment;
 
@@ -69,7 +69,7 @@ public class MyPageDTO {
 
 	}
 
-	//Actionクラスから呼び出され、userNameフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのuserNameを渡している*/
 	public String getUserName() {
 		return userName;
 
@@ -82,7 +82,7 @@ public class MyPageDTO {
 
 	}
 
-	//Actionクラスから呼び出され、idフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのidを渡している*/
 	public String getId() {
 		return id;
 
@@ -95,7 +95,7 @@ public class MyPageDTO {
 
 	}
 
-	//Actionクラスから呼び出され、insert_dateフィールドの値をActionに渡す
+	/*privateフィールドにアクセスしてgetを呼び出して、その戻り値としてDTOクラスのinsert_dateを渡している*/
 	public String getInsert_date() {
 		return insert_date;
 

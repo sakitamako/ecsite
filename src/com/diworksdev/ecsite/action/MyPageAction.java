@@ -34,11 +34,11 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> session;
 
 	//②DTOとDAOのインスタンス化（コピーして値を代入）
+	private MyPageDAO myPageDAO = new MyPageDAO();
+
 	//Listインタフェースのサイズ変更可能な配列の実装です。
 	//リストのオプションの操作をすべて実装し、nullを含むすべての要素を許容します。
 	//このクラスは、Listインタフェースを実装するほか、リストを格納するために内部的に使われる配列のサイズを操作するメソッドを提供します
-	private MyPageDAO myPageDAO = new MyPageDAO();
-
 	//ArrayList とは、 Listインタフェース を実装した コレクションクラス である。
 	//ArrayList は、 Array という名にあるように配列のような感覚で扱うことができる。
 	//配列 には格納できる 要素数が決まっている が、 ArrayList は 要素数は決まっていない 。
@@ -55,19 +55,24 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 	//全てのクラス 変数 変数名(struts) throws=例外を意図的に起こすことが出来る処理のこと。
 	public String execute() throws SQLException {
 
-		//もしsessionにuser_idが記憶されていたらエラーを表示する
+		//LoginAction.javaに記述あった⇩
+		//session.put("login_user_id",loginDTO.getLoginId());LoginDTOに格納しているLoginIdのこと
+		//session.put("id", buyItemDTO.getId());
+
+		//もしsessionにlogin_user_idが記憶・保存されていたら、ログアウトしないでhome.jspに戻る（Homeへ戻る場合はこちら）？
 		//! trueの場合処理は実行しない
 		if (! session.containsKey("login_user_id")) {
 
+			//struts.xmlの60行目
 			return ERROR;
 
 		}
 
 		//履歴の削除がされているか否か、チェックをしています。
-		//もしdeleteFlgとnullが等しい場合
+		//もしdeleteFlgとnullが等しい場合は格納した情報をリストで表示する
 		if (deleteFlg == null) {
 
-			//sessionに記憶しているIDとuser_idを取得してテキストで表示する
+			//sessionに記憶しているIDとlogin_user_idを取得してテキストで表示する
 			//item_transaction_idとuser_master_idはDBに問い合わせて受け取ったデータ
 			String item_transaction_id = session.get("id").toString();
 			String user_master_id = session.get("login_user_id").toString();
@@ -75,7 +80,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 			//DBから取得した履歴情報を、「myPageList」に格納しています
 			myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id, user_master_id);
 
-		//そうでない場合、もしdeleteFlgと１が等しい場合
+		//そうでない場合、もしdeleteFlgと１が等しい場合、削除ボタンを押すと格納した情報が削除されて商品情報を正しく削除しました。や商品情報の削除に失敗しました。を表示する
 		} else if (deleteFlg.equals("1")) {
 
 			//「delete」メソッドを呼び出して、履歴の削除処理を行います。
@@ -83,14 +88,15 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 		}
 
-		//SUCCESSをresultに代入して
+		//resultに上記処理結果を代入
 		String result = SUCCESS;
 
-		//resultに入った値を呼び出し元であるActionクラスに渡す
+		//resultにSUCCESS代入＝myPage.jspに遷移する、商品情報を正しく削除しました。や商品情報の削除に失敗しました。を表示する
 		return result;
 
 	}
 
+	//myPage.jsp画面の削除ボタンを押した後のアクション
 	//全てのクラス 変数 変数名(struts) throws=例外を意図的に起こすことが出来る処理のこと。
 	public void delete() throws SQLException {
 
@@ -99,7 +105,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		String item_transaction_id = session.get("id").toString();
 		String user_master_id = session.get("login_user_id").toString();
 
-		//DBから削除した履歴情報の件数を、DAOが呼び出して「res」に格納しています。
+		//DBから削除した履歴情報の件数を、DAOが呼び出して「res」に格納しています。DAOクラス112行目
 		int res = myPageDAO.buyItemHistoryDelete(item_transaction_id, user_master_id);
 
 		//1件以上削除されたか否かで正常に削除処理がされたか判別しています。
@@ -120,7 +126,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 	//外部のSETをここに代入して元々の値を外部から持ってきた値に変えて格納する
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のdeleteFlgフィールドに格納
+	//受け取ったテーブルの値を自身のdeleteFlgフィールドに格納
 	public void setDeleteFlg(String deleteFlg) {
 		this.deleteFlg = deleteFlg;
 
@@ -128,7 +134,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 	//外部のSETをここに代入して元々の値を外部から持ってきた値に変えて格納する
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のsessionフィールドに格納
+	//受け取ったテーブルの値を自身のsessionフィールドに格納
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
@@ -137,7 +143,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 	//外部からここにアクセスして、外部にデータを渡している
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、myPageListフィールドの値をActionに渡す
+	//DTOから戻り値として受け取った、myPageListフィールドの値をmyPage.jspに渡している
 	public ArrayList<MyPageDTO> getMyPageList() {
 		return this.myPageList;
 
@@ -145,7 +151,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 	//外部からここにアクセスして、外部にデータを渡している
 	//フィールド変数に対応したgetterとsetterを定義
-	//Actionクラスから呼び出され、messageフィールドの値をActionに渡す
+	//受け取った値の代わりにmessageフィールドの値をmyPage.jspに渡している
 	public String getMessage() {
 		return this.message;
 
@@ -153,7 +159,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 	//外部のSETをここに代入して元々の値を外部から持ってきた値に変えて格納する
 	//フィールド変数に対応したgetterとsetterを定義
-	//DAOクラスから呼び出され、引数として受け取ったテーブルの値を自身のmessageフィールドに格納
+	//受け取ったテーブルの値を自身のmessageフィールドに格納
 	public void setMessage(String message) {
 		this.message = message;
 
