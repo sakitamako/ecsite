@@ -59,17 +59,16 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		//session.put("login_user_id",loginDTO.getLoginId());LoginDTOに格納しているLoginIdのこと
 		//session.put("id", buyItemDTO.getId());
 
-		//もしsessionにlogin_user_idが記憶・保存されていたら、ログアウトしないでhome.jspに戻る（Homeへ戻る場合はこちら）？
+		//もしsessionにlogin_user_idが記憶・保存されていたら格納している情報を表示する
 		//! trueの場合処理は実行しない
 		if (! session.containsKey("login_user_id")) {
 
-			//struts.xmlの60行目
 			return ERROR;
 
 		}
 
 		//履歴の削除がされているか否か、チェックをしています。
-		//もしdeleteFlgとnullが等しい場合は格納した情報をリストで表示する
+		//もしdeleteFlgとnullが等しい場合はDBから取得した履歴情報を、「myPageList」に格納しています
 		if (deleteFlg == null) {
 
 			//sessionに記憶しているIDとlogin_user_idを取得してテキストで表示する
@@ -116,7 +115,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 			myPageList = null;
 			setMessage("商品情報を正しく削除しました。");
 
-		//そうでない場合もしresと0が等しい場合falseで削除できない
+		//そうでない場合もしresと0が等しい場合削除できない
 		} else if (res == 0) {
 			setMessage("商品情報の削除に失敗しました。");
 
