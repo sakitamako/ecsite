@@ -77,6 +77,9 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 			//sessionに記憶
 			session.put("pay", payment);
+
+			//エラーを起こす方法!できた！
+			result = ERROR;
 		}
 
 		//戻り値

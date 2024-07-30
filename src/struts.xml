@@ -47,7 +47,7 @@
 
         <action name="BuyItemAction" class="com.diworksdev.ecsite.action.BuyItemAction" method="execute">
             <result name="success">buyItemConfirm.jsp</result>
-            <!--  <result name="error">BuyItem.jsp</result>  -->
+            <result name="error">buyItemError.jsp</result>
         </action>
 
         <action name="BuyItemConfirmAction" class="com.diworksdev.ecsite.action.BuyItemConfirmAction" method="execute">
@@ -57,7 +57,7 @@
 
         <action name="MyPageAction" class="com.diworksdev.ecsite.action.MyPageAction" method="execute">
             <result name="success">myPage.jsp</result>
-            <result name="error">home.jsp</result>
+            <result name="error">homeError.jsp</result>
         </action>
 
         <action name="LogoutAction" class="com.diworksdev.ecsite.action.LogoutAction" method="execute">
