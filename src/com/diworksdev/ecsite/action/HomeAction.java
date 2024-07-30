@@ -44,7 +44,8 @@ public class HomeAction extends ActionSupport implements SessionAware {
 		//もしsessionに特定のキーが辞書内に存在するかどうかを確認するために使用される、存在する場合にtrueを返します
 		//containsKey=マップに特定の値が存在するかどうかを調べたい場合、 あるいはキーと値の両方について調べたい場合は exists メソッドを使用
 		/*もしsessionに記憶しているlogin_user_idに値がはいっていたら
-		 *buyItemDAOがDBに問い合わせて受け取った情報をbuyItemDTOに格納してDAOがこのクラスに戻り値の値を返す、返ってきた値が存在すればbuyItem.jspに遷移する*/
+		 *buyItemDAOがDBに問い合わせて受け取った情報をbuyItemDTOに格納してDAOがこのクラスに戻り値の値を返す、返ってきた値が存在すればbuyItem.jspに遷移する
+		 *値が存在しなかったらlogin.jsp画面に遷移する*/
 		if (session.containsKey("login_user_id")) {
 
 			//DAOとDTOのインスタンス化（コピーして代入）
