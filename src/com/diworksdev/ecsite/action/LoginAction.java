@@ -49,7 +49,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public String execute() {
 
 		//変数・文字列 result=ERROR
-		//ログイン情報を入力しない、またはDBに情報が存在しない状態でlogin.jspのログインボタンを押したらエラー
+		//初期値
 		String result = ERROR;
 
 		//JSPから送られてきた情報を引数として、
@@ -67,10 +67,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		//もしLoginDTOに記憶しているsessionのloginUserとgetLoginFlg()を取得した場合success
 		if (((LoginDTO)session.get("loginUser")).getLoginFlg()) {
 
-			//なぜSUCCESSになるかというと、LoginDAOの70行目でtrueをDTOに格納しているから！
+			//処理結果がサクセス！resultに代入
 			result = SUCCESS;
 
-			//buyItemDTOファイルの  行目
 			//buyItemDAOクラスのgetBuyItemInfoメソッドを呼び出す
 			//その後、DAOで取得した結果をbuyItemDTOに代入する
 			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
@@ -83,14 +82,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put("buyItem_price", buyItemDTO.getItemPrice());
 
 			//戻り値
-			//resultに入った値を呼び出し元であるresultに渡す、上記71行目
+			//resultに入った値を呼び出し元である上記resultに渡す
 			return result;
 
 		}
 
 		//戻り値
-		//resultに入った値を上記53行目に返す、初期値はERROR、処理結果はSUCCESS！
-		//buyItem.jspに遷移する
+		//初期値はERROR、処理結果がSUCCESSだったらbuyItem.jspに遷移する（struts.xmlの31行目、32行目）
 		return result;
 
 	}
