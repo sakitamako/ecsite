@@ -67,7 +67,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		}
 
-		//if文の処理結果resultを呼び出し元である上記48行目に渡す
+		//空文字の部分に値が入っていたら処理を実行する、サクセス！userCreateConfirm.jsp画面に遷移する
 		return result;
 
 	}
