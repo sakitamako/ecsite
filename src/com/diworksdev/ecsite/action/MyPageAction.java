@@ -71,7 +71,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		//もしdeleteFlgとnullが等しい場合はDBから取得した履歴情報を、「myPageList」に格納しています
 		if (deleteFlg == null) {
 
-			//sessionに記憶しているIDとlogin_user_idを取得してテキストで表示する
+			//sessionに記憶しているIDとlogin_user_idを取得してテキストで表す文字列を返す
 			//item_transaction_idとuser_master_idはDBに問い合わせて受け取ったデータ
 			String item_transaction_id = session.get("id").toString();
 			String user_master_id = session.get("login_user_id").toString();
