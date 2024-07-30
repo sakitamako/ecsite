@@ -91,21 +91,21 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	//Bクラス内に setter メソッドを定義し、外部から呼び出すことによって、引数にした値を代入,値を書き換えしている。
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//全てのクラスのcountから受け取ったテーブルの値を自身のcountフィールドに格納
+	//jsp画面のcountから受け取ったテーブルの値を自身のcountフィールドに格納
 	public void setCount(int count) {
 		this.count = count;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//全てのクラスのpayから受け取ったテーブルの値を自身のpayフィールドに格納
+	//jsp画面のpayから受け取ったテーブルの値を自身のpayフィールドに格納
 	public void setPay(String pay) {
 		this.pay = pay;
 
 	}
 
 	//フィールド変数に対応したgetterとsetterを定義
-	//全てのクラスのsessionから受け取ったテーブルの値を自身のsessionフィールドに格納
+	//sessionに記憶した値を自身のsessionフィールドに格納
 	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
