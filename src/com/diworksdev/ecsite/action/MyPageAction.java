@@ -63,6 +63,9 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		//! trueの場合処理は実行しない
 		if (! session.containsKey("login_user_id")) {
 
+			//ログインしていない時にいきなりマイページ画面に行くボタンを押すとエラー画面にいく！
+			//エラー.jsp追加して検証すると実際の動きわかる、今後も実践する！
+			//strutsの記述とjsp一致させてね
 			return ERROR;
 
 		}

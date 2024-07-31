@@ -47,11 +47,13 @@
 
         <action name="BuyItemAction" class="com.diworksdev.ecsite.action.BuyItemAction" method="execute">
             <result name="success">buyItemConfirm.jsp</result>
+            <!-- アドバイスもらって作成したやつ -->
             <result name="error">buyItemError.jsp</result>
         </action>
 
         <action name="BuyItemConfirmAction" class="com.diworksdev.ecsite.action.BuyItemConfirmAction" method="execute">
             <result name="success">buyItemComplete.jsp</result>
+            <!-- アドバイスもらって作成したやつ -->
             <result name="back">buyItem.jsp</result>
         </action>
 

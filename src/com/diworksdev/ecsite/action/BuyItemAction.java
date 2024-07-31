@@ -79,6 +79,8 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 			session.put("pay", payment);
 
 			//エラーを起こす方法!できた！
+			//元々このコードなかった！テキストにも！
+			//クレジットカードを洗濯して購入ボタン押すとエラーを起こすことができるようになる
 			result = ERROR;
 		}
 
